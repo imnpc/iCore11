@@ -8,6 +8,7 @@
         "php": "^8.2",
         "bolechen/nova-activitylog": "^0.4.3",
         "coderello/laravel-nova-lang": "^2.0",
+        "jiannei/laravel-response": "^6.0",
         "konsulting/nova-target": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/nova": "^4.0",

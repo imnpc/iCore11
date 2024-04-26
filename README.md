@@ -1,66 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 关于
 
-## About Laravel
+基于 Laravel 11 和 Nova 后台框架
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 安装和运行
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+cd ~/Code/
+git clone git@github.com:imnpc/iCore11.git project
+```
 
-## Learning Laravel
+复制 Nova授权文件 auth.json 文件到 项目根目录下,
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+修改 .env 文件,配置数据库信息,
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+导入数据库文件 base11nova.sql,
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+然后继续执行
 
-## Laravel Sponsors
+```bash
+composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+php artisan key:generate
 
-### Premium Partners
+php artisan storage:link
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+php artisan migrate
+```
 
-## Contributing
+清理缓存
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+php artisan clear-compiled
+composer dump-autoload
+php artisan optimize
+php artisan view:clear
+php artisan permission:cache-reset
+```
 
-## Code of Conduct
+创建权限（默认已有权限，无需操作，以后新增模型以后需要）
+```bash
+php artisan db:seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 管理后台
 
-## Security Vulnerabilities
+```bash
+/admin
+帐号:admin@admin.com
+密码:admin2024888
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 说明
 
-## License
+### 所有后台控制器都位于 /app/Nova 目录下
+/app/Nova/AdminUser.php  后台管理员
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+/app/Nova/User.php  用户
+
+/app/Nova/Settings/General.php 常规设置
+
+/app/Nova/Settings/Site.php 站点设置
+
+设置项前台调用
+
+nova_get_setting('link'); // link 是要调用的字段
+
+操作用户钱包
+$logService = app()->make(LogService::class); // 钱包服务初始化
+$remark = "奖励金额 " . $money . ' ,订单号 #' . $this->order->order_sn;
+$logService->userWalletLog($user->id, 1, $money, 0, $day, FromType::ORDER, $remark, $this->order->id);
+
+
+## 常用命令
+
+```bash
+
+// 创建模型和数据迁移文件
+php artisan make:model Order -m
+// 创建 API 控制器
+php artisan make:controller Api/OrderController --model=App\\Models\\Order
+// 创建 资源
+php artisan make:resource OrderResource
+// 创建 策略授权
+php artisan make:policy OrderPolicy
+
+// 生成后台资源
+php artisan nova:resource Order
+
+// 创建 队列任务
+php artisan make:job SendBonus
+
+// 创建 枚举类 (第三方)
+php artisan make:enum OrderStatus
+```
