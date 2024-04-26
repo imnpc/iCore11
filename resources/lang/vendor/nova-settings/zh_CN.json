@@ -1,0 +1,10 @@
+{
+    "novaSettings.navigationItemTitle": "设置",
+    "novaSettings.saveButtonText": "保存设置",
+    "novaSettings.noSettingsFieldsText": "未定义任何设置字段.",
+    "novaSettings.settingsSuccessToast": "设置更新成功!",
+    "novaSettings.general": "常规",
+    "novaSettings.site": "站点",
+    "novaSettings.commission": "分销",
+    "novaSettings.store": "店铺"
+}
