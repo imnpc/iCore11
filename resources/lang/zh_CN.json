@@ -40,6 +40,7 @@
     "Continue": "继续请求",
     "Create": "创建",
     "Created": "已创建",
+    "Create :resource": "创建 :resource",
     "Dashboard": "控制面板",
     "Delete": "删除",
     "Detach": "分离",
