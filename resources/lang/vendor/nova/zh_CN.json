@@ -564,5 +564,9 @@
     "You can upload your files by dragging them here": "你可以通过将文件拖到此处来上传文件",
     "Zambia": "赞比亚",
     "Zimbabwe": "津巴布韦",
-    "—": "—"
+    "—": "—",
+    "nickname": "昵称",
+    "mobile": "手机",
+    "parent_id": "上级 ID",
+    "UserTree": "用户树"
 }

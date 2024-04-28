@@ -311,5 +311,15 @@
     "Yes": "是的",
     "You are logged in!": "您已登录！",
     "You are receiving this email because we received a password reset request for your account.": "您收到此电子邮件是因为我们收到了您帐户的密码重设请求。",
-    "You can upload your files by dragging them here": "你可以通过将文件拖到此处来上传文件"
+    "You can upload your files by dragging them here": "你可以通过将文件拖到此处来上传文件",
+    "nickname": "昵称",
+    "mobile": "手机",
+    "parent_id": "上级 ID",
+    "status": "状态",
+    "Update & Continue Editing": "更新并继续编辑",
+    "Update :resource": "更新 :resource",
+    "Update :resource: :title": "更新 :resource：:title",
+    ":resource Details": ":Resource 详情",
+    ":resource Details: :title": ":Resource 详细信息：:title",
+    "UserTree": "用户树"
 }
