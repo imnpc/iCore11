@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: 'api/v1',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectGuestsTo(fn () => route('nova.login'));
+//        $middleware->redirectGuestsTo(fn () => route('nova.login'));
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
