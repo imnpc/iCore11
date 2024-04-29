@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -145,5 +146,13 @@ class UserController extends Controller
             ->paginate();
 
         return $this->success(new UserResource($list));
+    }
+
+    public function test()
+    {
+        Cache::put('nova_valid_license_key', 1);
+//        Cache::remember('nova_valid_license_key', 3600, function () {
+//            return 1;
+//        });
     }
 }

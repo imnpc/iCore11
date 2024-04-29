@@ -321,5 +321,16 @@
     "Update :resource: :title": "更新 :resource：:title",
     ":resource Details": ":Resource 详情",
     ":resource Details: :title": ":Resource 详细信息：:title",
-    "UserTree": "用户树"
+    "UserTree": "用户树",
+    "TotalUsers": "累计用户",
+    "All Time": "全部时间",
+    "7 Days": "7 天",
+    "1 Days": "24小时",
+    "30 Days": "30天",
+    "365 Days": "365 天",
+    "60 Days": "60天",
+    "90 Days": "90天",
+    "TotalOrder": "累计订单",
+    "UserSatus": "用户新增数据",
+    "UsersPerDay": "用户新增数据"
 }
