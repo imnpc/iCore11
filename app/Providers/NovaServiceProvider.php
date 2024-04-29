@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Nova\Permission;
 use App\Nova\Role;
+use Eminiarts\Tabs\Tab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -32,6 +33,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             @endenv
             ');
         });
+
+        // 标签页 中文切换
+        Tab::createSlugUsing(fn(Tab $tab) => $tab->getTitle());
 
         // 网站配置项
         $settings = [

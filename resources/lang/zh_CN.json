@@ -332,5 +332,20 @@
     "90 Days": "90天",
     "TotalOrder": "累计订单",
     "UserSatus": "用户新增数据",
-    "UsersPerDay": "用户新增数据"
+    "UsersPerDay": "用户新增数据",
+    "Pay":"钱包支付",
+    "UserWalletLog": "用户钱包日志",
+    "WalletType": "钱包类型",
+    "Slug": "英文代码",
+    "Description": "说明",
+    "DecimalPlaces": "小数位数",
+    "Icon": "图标",
+    "IsEnabled": "是否启用",
+    "user_id": "用户ID",
+    "Day": "日期",
+    "Old": "原数值",
+    "NewNum": "新数值",
+    "FromType": "来源",
+    "FromUser": "来自用户",
+    "Remark": "备注"
 }

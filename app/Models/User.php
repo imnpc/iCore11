@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\dateTrait;
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Interfaces\WalletFloat;
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Traits\HasWalletFloat;
+use Bavix\Wallet\Traits\HasWallets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Wallet, WalletFloat
 {
     use HasFactory, Notifiable;
     use HasApiTokens;
     use dateTrait;
+    use HasWallet, HasWallets;
+    use HasWalletFloat;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +53,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // 关联 用户钱包日志
+    public function userWalletLog()
+    {
+        return $this->hasMany(UserWalletLog::class);
     }
 
     // 用户的上级

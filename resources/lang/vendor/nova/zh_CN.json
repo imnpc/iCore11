@@ -568,5 +568,20 @@
     "nickname": "昵称",
     "mobile": "手机",
     "parent_id": "上级 ID",
-    "UserTree": "用户树"
+    "UserTree": "用户树",
+    "WalletType": "钱包类型",
+    "Slug": "英文代码",
+    "Description": "说明",
+    "DecimalPlaces": "小数位数",
+    "Icon": "图标",
+    "IsEnabled": "是否启用",
+    "UserWalletLog": "用户钱包日志",
+    "user_id": "用户ID",
+    "Day": "日期",
+    "Old": "原数值",
+    "Add": "新增",
+    "NewNum": "新数值",
+    "FromType": "来源",
+    "FromUser": "来自用户",
+    "Remark": "备注"
 }

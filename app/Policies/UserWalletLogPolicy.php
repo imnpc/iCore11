@@ -5,7 +5,7 @@ namespace App\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Sereny\NovaPermissions\Policies\BasePolicy;
 
-class AdminUserPolicy extends BasePolicy
+class UserWalletLogPolicy extends BasePolicy
 {
     use HandlesAuthorization;
 
@@ -16,5 +16,12 @@ class AdminUserPolicy extends BasePolicy
     {
         //
     }
-    public $key = 'AdminUser';
+
+    /**
+     * The Permission key the Policy corresponds to.
+     *
+     * @var string
+     */
+    public $key = 'UserWalletLog';
+
 }
