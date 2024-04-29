@@ -7,6 +7,8 @@ use Sereny\NovaPermissions\Policies\BasePolicy;
 
 class UserPolicy extends BasePolicy
 {
+    use HandlesAuthorization;
+
     /**
      * Create a new policy instance.
      */

@@ -347,5 +347,7 @@
     "NewNum": "新数值",
     "FromType": "来源",
     "FromUser": "来自用户",
-    "Remark": "备注"
+    "Remark": "备注",
+    "Are you sure you want to run this action?": "您确定要执行此操作吗？",
+    "Run Action": "运行操作"
 }
